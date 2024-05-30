@@ -117,9 +117,6 @@ class WaveBrush {
     display() {
       push();
       translate(this.xPos, this.yPos);
-      stroke(0);
-      noFill();
-      rect(this.xPos - this.width, this.yPos-this.height, this.width*2, this.height*2);
       brush.set("charcoal", "#4400FF", .4);
       let points = []
       if (this.lifespan > 72) {

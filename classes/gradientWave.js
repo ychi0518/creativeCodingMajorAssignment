@@ -29,6 +29,7 @@ class GradientWave {
   display() {
     push();
     translate(this.xPos, this.yPos);
+    noFill();
     let nx1 = this.offset1;
     let nx2 = this.offset2;
     let nx3 = this.offset3;
@@ -36,7 +37,7 @@ class GradientWave {
     let nx5 = this.offset5;
     let nx6 = this.offset6;
     // Draw the background from left to right
-    for (let x = -10; x <= this.w; x += 4) {
+    for (let x = -10; x <= this.w; x += 50) {
       let n1 = map(noise(nx1), 0, 1, -1, 1);
       let n2 = map(noise(nx2), 0, 1, -1, 1);
       let n3 = map(noise(nx3), 0, 1, -1, 1);
@@ -51,28 +52,28 @@ class GradientWave {
       let gap2 = waveHeight2 - waveHeight1;
       let gap3 = this.h - waveHeight2;
       // Draw the first gradient section
-      for (let y = 0; y < gap1; y += 4) {
+      for (let y = 0; y < gap1; y += 40) {
         let inter = map(y, 0, gap1, 0, 1);
         let interColor = lerpColor(this.color0, this.color1, inter);
         stroke(interColor);
-        strokeWeight(random(1, 5));
+        strokeWeight(100);
         // Use random deviation to create an irregular texture effect
         ellipse(x + 10 * n3, y + 10 * n4, random(5, 30), random(5, 30)); 
       }
       // Draw the second gradient section
-      for (let y = 0; y < gap2; y += 4) {
+      for (let y = 0; y < gap2; y += 40) {
         let inter = map(y, 0, gap2, 0, 1);
         let interColor = lerpColor(this.color1, this.color2, inter);
         stroke(interColor);
-        strokeWeight(random(1, 5));
+        strokeWeight(100);
         ellipse(x + 10 * n4, waveHeight1 + y + 10 * n5, random(5, 30), random(5, 30)); //random Deviation
       }
       // Draw the third gradient section
-      for (let y = 0; y < gap3; y += 4) {
+      for (let y = 0; y < gap3; y += 40) {
         let inter = map(y, 0, gap3, 0, 1);
         let interColor = lerpColor(this.color2, this.color3, inter);
         stroke(interColor);
-        strokeWeight(random(1, 5));
+        strokeWeight(100);
         ellipse(x + 10 * n5, waveHeight2 + y + 10 * n6, random(5, 30), random(5, 30)); //random Deviation
       }
 
