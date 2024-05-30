@@ -1,12 +1,16 @@
 class BackgroundShadow {
-  constructor() {
+  constructor(xPos, yPos, opacity) {
     // Initialize any properties if needed
     this.xPos = xPos;
     this.yPos = yPos;
-    this.opacity = this.opacity;
+    this.opacity = opacity;
   }
 
   display() {
+    push();
+    // Move the lighthouse to position
+    translate(this.xPos, this.yPos);
+    scale(3);
     // Draw the shadow with a blur effect
     drawingContext.shadowOffsetX = 5;
     drawingContext.shadowOffsetY = 5;
@@ -18,15 +22,13 @@ class BackgroundShadow {
 
     // Draw the original lighthouse shape
     this.drawLighthouse();
+    pop();
   }
 
   drawLighthouse() {
-    push();
 
-    // Move the lighthouse to the center of the canvas
-    translate(width / 2 - 40, height / 2 - 36);
 
-    fill(112, 103, 114); // Shape color with no transparency
+    fill(112, 103, 114,this.opacity); // Shape color with no transparency
     beginShape();
     vertex(53, 0);
     vertex(55, 2);
@@ -59,7 +61,5 @@ class BackgroundShadow {
     vertex(53, 17);
     vertex(53, 0);
     endShape(CLOSE);
-
-    pop();
   }
 }

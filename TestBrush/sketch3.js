@@ -114,7 +114,7 @@ class Building{
 
 let palette = ["#7b4800", "#002185", "#003c32", "#fcd300", "#ff2702", "#6b9404"]
 
-let building = new Building(400,0,50,10,23)
+let building = new Building(0,0,50,10,23)
 
 function setup() {
   C.createCanvas()
