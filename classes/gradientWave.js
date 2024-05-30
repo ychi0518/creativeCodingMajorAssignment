@@ -37,7 +37,7 @@ class GradientWave {
     let nx5 = this.offset5;
     let nx6 = this.offset6;
     // Draw the background from left to right
-    for (let x = -10; x <= this.w; x += 50) {
+    for (let x = -10; x <= this.w; x += 30) {
       let n1 = map(noise(nx1), 0, 1, -1, 1);
       let n2 = map(noise(nx2), 0, 1, -1, 1);
       let n3 = map(noise(nx3), 0, 1, -1, 1);
