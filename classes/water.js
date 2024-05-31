@@ -1,4 +1,4 @@
-// This class creates the water based on perlin noise wave
+// This class creates the water based on perlin noise wave https://p5js.org/examples/math-noise-wave.html
 // parameters:
 // waveHeight1 and waveHeight2 are the y limits of the wave
 class Water {
