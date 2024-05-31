@@ -50,6 +50,6 @@ function draw() {
     wave.edges();
     wave.flock(waves, 1, 0, 1);
     wave.update();
-    wave.display(1);
+    wave.display(1,1,55,0,255);
   }
 }

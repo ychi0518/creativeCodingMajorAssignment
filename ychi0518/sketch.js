@@ -117,6 +117,6 @@ function draw() {
     wave.edges();
     wave.flock(waves, 1, 0, 1);
     wave.update();
-    wave.display(spectrum[1]/255, 2+bass/255*2);
+    wave.display(spectrum[1]/255, 2+bass/255*2, 55,0,255);
   }
 }

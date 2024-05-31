@@ -115,12 +115,12 @@ class WaveBrush {
       }
     }
   
-    display(size, velocity) {
+    display(size, velocity, R, G, B) {
       push();
       this.velocity.setMag(velocity);
       this.size = size*10+10;
       translate(this.xPos, this.yPos);
-      fill(55,0,255,this.lifespan*2);
+      fill(R,G,B,this.lifespan*2);
       let points = []
       if (this.lifespan > 72) {
         points = [
@@ -156,13 +156,5 @@ class WaveBrush {
       }
       endShape();
       pop();
-    }
-
-    resizeWindow(xPos, yPos, width, height){
-
-        this.xPos = xPos;
-        this.yPos = yPos;
-        this.width = width;
-        this.height = height;
     }
   }
