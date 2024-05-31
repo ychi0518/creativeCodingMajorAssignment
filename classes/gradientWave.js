@@ -1,5 +1,7 @@
+//This class creates a wave-like texture that has a gradient of 4 colour.
 class GradientWave {
   constructor(xPos, yPos, w, h, amplitude, yPercent1, yPercent2, color0, color1, color2, color3) {
+    // Set the X, Y position
     this.xPos = xPos; 
     this.yPos = yPos;
     // Width and height of the gradient background
@@ -26,6 +28,7 @@ class GradientWave {
     this.offset6 = random(100);
   }
 
+  //the display function draw the texture
   display() {
     push();
     translate(this.xPos, this.yPos);
@@ -37,7 +40,7 @@ class GradientWave {
     let nx5 = this.offset5;
     let nx6 = this.offset6;
     // Draw the background from left to right
-    for (let x = -10; x <= this.w; x += 30) {
+    for (let x = 0; x <= this.w; x += 30) {
       let n1 = map(noise(nx1), 0, 1, -1, 1);
       let n2 = map(noise(nx2), 0, 1, -1, 1);
       let n3 = map(noise(nx3), 0, 1, -1, 1);

@@ -112,7 +112,7 @@ function draw() {
   gradientSea.display();
   backgroundShadow.display();
   building.display();
-  water.display(spectrum);
+  water.displayMusic(spectrum);
   for (let wave of waves) {
     wave.edges();
     wave.flock(waves, 1, 0, 1);
