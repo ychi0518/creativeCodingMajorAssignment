@@ -53,6 +53,7 @@ function draw() {
   gradientSky.display();
   gradientSea.display();
   building.display();
+  building.reflection(20,20,20,120);
   backgroundShadow.display();
   water.display();
   seagull1.move();

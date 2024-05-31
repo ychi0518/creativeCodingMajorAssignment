@@ -24,7 +24,7 @@ class Water{
             // Option #1: 2D Noise
             if(array){
 
-                y = map(array[counter]/255, 0, 1, 60, 100);
+                y = map(array[counter]/255, 0, 1, 80, 100);
             } else{
 
                 y = map(noise(xoff, this.yoff), 0, 1, 60, 100);
@@ -41,7 +41,7 @@ class Water{
         }
         // increment y dimension for noise
         this.yoff += 0.01;
-        vertex(width/2,60);
+        vertex(width/2,80);
         vertex(width/2, height);
         vertex(-width/2, height);
         endShape(CLOSE);
