@@ -12,6 +12,7 @@ class WaveBrush {
       this.acceleration = createVector();
       this.maxForce = 0.2;
       this.maxSpeed = 3;
+      this.size = 1;
     }
     edges() {
       if (this.position.x > this.width + this.xPos) {
@@ -114,45 +115,54 @@ class WaveBrush {
       }
     }
   
-    display() {
+    display(size, velocity) {
       push();
+      this.velocity.setMag(velocity);
+      this.size = size*10+10;
       translate(this.xPos, this.yPos);
-      brush.set("charcoal", "#4400FF", .4);
+      fill(55,0,255,this.lifespan*2);
       let points = []
       if (this.lifespan > 72) {
         points = [
-          [this.position.x - 25, this.position.y],
-          [this.position.x, this.position.y + 10],
-          [this.position.x + 25, this.position.y]
+          [this.position.x - this.size, this.position.y],
+          [this.position.x, this.position.y + this.size/2],
+          [this.position.x + this.size, this.position.y]
         ];
       }
       else if (this.lifespan > 48) {
         points = [
-          [this.position.x - 25, this.position.y],
-          [this.position.x, this.position.y + 5],
-          [this.position.x + 25, this.position.y]
+          [this.position.x - this.size, this.position.y],
+          [this.position.x, this.position.y + this.size/4],
+          [this.position.x + this.size, this.position.y]
         ];
       }
         else if (this.lifespan > 24) {
         points = [
-          [this.position.x - 25, this.position.y],
-          [this.position.x, this.position.y - 5],
-          [this.position.x + 25, this.position.y]
+          [this.position.x - this.size, this.position.y],
+          [this.position.x, this.position.y - this.size/4],
+          [this.position.x + this.size, this.position.y]
         ];
       }
       else if (this.lifespan > 0) {
         points = [
-          [this.position.x - 25, this.position.y],
+          [this.position.x - this.size, this.position.y],
           [this.position.x, this.position.y],
-          [this.position.x + 25, this.position.y]
+          [this.position.x + this.size, this.position.y]
         ];
       }
-      brush.beginShape(.5);
-      print(points);
+      beginShape();
       for(let point of points){
-        brush.vertex(point[0], point[1]);
+        vertex(point[0], point[1]);
       }
-      brush.endShape();
+      endShape();
       pop();
+    }
+
+    resizeWindow(xPos, yPos, width, height){
+
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.width = width;
+        this.height = height;
     }
   }

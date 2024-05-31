@@ -1,11 +1,20 @@
-let gradientWave;
-
-
 function windowResized() {
+  print("resized")
   resizeCanvas(windowWidth, windowHeight);
+  let skyXPos = -windowWidth/2;
+  let skyYPos = -windowHeight/2;
+  let skyWidth = windowWidth;
+  let skyHeight = windowHeight/2+120
+  waves = [];
+  for (let i = 0; i < 99; i++) {
+    waves.push(new WaveBrush(0, 148, width/2, 200));
+  }
+  gradientSky = new GradientWave(skyXPos, skyYPos, skyWidth+200, skyHeight, amplitude, yPercent1, yPercent2, color0, color1, color2, color3);
+  gradientSea = new GradientWave(skyXPos, 150, skyWidth+200, skyHeight, amplitude, yPercent1, yPercent2, color3, color2, color1, color0); 
 }
-
-const waves = [];
+let gradientSky;
+let gradientSea
+let waves = [];
 function setup() {
   angleMode(DEGREES);
   createCanvas(windowWidth, windowHeight, WEBGL);
@@ -41,6 +50,6 @@ function draw() {
     wave.edges();
     wave.flock(waves, 1, 0, 1);
     wave.update();
-    wave.display();
+    wave.display(1);
   }
 }
