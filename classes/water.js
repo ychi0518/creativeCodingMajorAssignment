@@ -38,7 +38,7 @@ class Water {
         // increment y dimension for noise
         this.yoff += 0.01;
         // close off the shape
-        vertex(width / 2, 80);
+        vertex(width / 2, this.waveHeight1 + (this.waveHeight2-this.waveHeight1)*.25);
         vertex(width / 2, height);
         vertex(-width / 2, height);
         endShape(CLOSE);
@@ -68,7 +68,7 @@ class Water {
         // increment y dimension for noise
         this.yoff += 0.01;
         //close off the shape
-        vertex(width / 2, 80);
+        vertex(width / 2, this.waveHeight1);
         vertex(width / 2, height);
         vertex(-width / 2, height);
         endShape(CLOSE);
