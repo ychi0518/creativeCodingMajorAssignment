@@ -11,8 +11,8 @@ class Water{
         let xoff = 0; // Option #1: 2D Noise
         // let xoff = yoff; // Option #2: 1D Noise
         let steps = 0;
-        if(array>0){
-            
+        if(array){
+            print("array>0")
             steps = width / array.length;
         } else {
             steps = 10;
@@ -22,7 +22,7 @@ class Water{
             // Calculate a y value according to noise, map to
             let y = 0
             // Option #1: 2D Noise
-            if(array>0){
+            if(array){
 
                 y = map(array[counter]/255, 0, 1, 60, 100);
             } else{

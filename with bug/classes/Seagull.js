@@ -2,6 +2,8 @@ class Seagull {
   constructor(x, y, size, color) {
     this.x = x;
     this.y = y;
+    this.pivotX = x;
+    this.pivotY = y;
     this.size = size;
     this.color = color;
     this.wingAngle = 0;
@@ -40,8 +42,8 @@ class Seagull {
 
   move() {
     // Update position using Perlin noise
-    this.x = noise(this.noiseOffsetX) * width;
-    this.y = noise(this.noiseOffsetY) * height;
+    this.x = this.pivotX + noise(this.noiseOffsetX) * width;
+    this.y = this.pivotY + noise(this.noiseOffsetY) * height;
 
     // Increment noise offsets for next frame (slower speed)
     this.noiseOffsetX += 0.005;
